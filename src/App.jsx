@@ -1,6 +1,6 @@
 import React from 'react';
 import { ConfigProvider, Layout, theme, Modal, List, Tag, Spin, Button, Checkbox, Badge, message } from 'antd';
-import { FileTextOutlined, UploadOutlined } from '@ant-design/icons';
+import { FileTextOutlined, UploadOutlined, MessageOutlined } from '@ant-design/icons';
 import AppHeader from './components/AppHeader';
 import RequestList from './components/RequestList';
 import DetailPanel from './components/DetailPanel';
@@ -734,11 +734,42 @@ class App extends React.Component {
     if (this.state.cliMode && isMobile) {
       return (
         <div style={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column', background: '#000' }}>
-          <div style={{ padding: '6px 12px', background: '#111', borderBottom: '1px solid #222', display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0 }}>
-            <Badge status="processing" color="green" />
-            <span style={{ fontSize: 12, color: '#aaa' }}>{t('ui.liveMonitoring')}{this.state.projectName ? `: ${this.state.projectName}` : ''}</span>
+          <div style={{ padding: '10px 12px', background: '#111', borderBottom: '1px solid #222', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexShrink: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <Badge status="processing" color="green" />
+              <span style={{ fontSize: 12, color: '#aaa' }}>{t('ui.liveMonitoring')}{this.state.projectName ? `: ${this.state.projectName}` : ''}</span>
+            </div>
+            <Button
+              type="text"
+              size="small"
+              icon={<MessageOutlined />}
+              onClick={() => this.setState(prev => ({ mobileChatVisible: !prev.mobileChatVisible }))}
+              style={{ color: this.state.mobileChatVisible ? '#fff' : '#888', fontSize: 12 }}
+            >
+              {this.state.mobileChatVisible ? t('ui.mobileChatExit') : t('ui.mobileChatBrowse')}
+            </Button>
           </div>
-          <TerminalPanel />
+          <div style={{ flex: 1, position: 'relative', overflow: 'hidden' }}>
+            <TerminalPanel />
+            <div className={`${styles.mobileChatOverlay} ${this.state.mobileChatVisible ? styles.mobileChatOverlayVisible : ''}`}>
+              <ConfigProvider theme={{ algorithm: theme.darkAlgorithm, token: { colorBgContainer: '#111', colorBgLayout: '#0a0a0a', colorBgElevated: '#1a1a1a', colorBorder: '#2a2a2a' } }}>
+                <div className={styles.mobileChatInner}>
+                  <ChatView
+                    requests={filteredRequests}
+                    mainAgentSessions={mainAgentSessions}
+                    userProfile={this.state.userProfile}
+                    collapseToolResults={this.state.collapseToolResults}
+                    expandThinking={this.state.expandThinking}
+                    onViewRequest={null}
+                    scrollToTimestamp={null}
+                    onScrollTsDone={() => {}}
+                    cliMode={false}
+                    terminalVisible={false}
+                  />
+                </div>
+              </ConfigProvider>
+            </div>
+          </div>
         </div>
       );
     }

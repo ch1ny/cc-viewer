@@ -81,6 +81,7 @@ Click the "Conversation Mode" button in the top-right corner to parse the Main A
 - User selection messages (AskUserQuestion) are displayed in a Q&A format
 - Bidirectional mode sync: switching to Conversation Mode automatically navigates to the conversation corresponding to the selected request; switching back to Raw Mode automatically navigates to the selected request
 - Settings panel: toggle the default collapsed state of tool results and thinking blocks
+- Mobile chat browse: in mobile CLI mode, tap the "Chat Browse" button in the top bar to slide in a read-only chat view overlay, allowing you to browse the full conversation history on your phone
 
 
 ### Statistics Tool

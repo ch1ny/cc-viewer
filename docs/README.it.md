@@ -79,6 +79,7 @@ Fare clic sul pulsante «Modalità conversazione» in alto a destra per analizza
 - I messaggi di selezione dell'utente (AskUserQuestion) vengono visualizzati in formato domanda e risposta
 - Sincronizzazione bidirezionale delle modalità: il passaggio alla modalità conversazione naviga automaticamente alla conversazione della richiesta selezionata; il ritorno alla modalità testo originale naviga automaticamente alla richiesta selezionata
 - Pannello impostazioni: è possibile alternare lo stato di compressione predefinito dei risultati degli strumenti e dei blocchi di pensiero
+- Navigazione chat mobile: in modalità CLI mobile, tocca il pulsante "Sfoglia chat" nella barra superiore per far scorrere una vista chat di sola lettura e sfogliare l'intera cronologia delle conversazioni sul telefono
 
 
 ### Strumenti di statistica

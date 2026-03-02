@@ -9,6 +9,8 @@
   flex: 1;
   overflow: hidden;
   padding: 4px 8px;
+  touch-action: none;
+  overscroll-behavior: contain;
 }
 
 .virtualKeybar {

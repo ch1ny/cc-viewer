@@ -202,16 +202,21 @@ class ChatView extends React.Component {
   }
 
   _bindStickyScroll() {
+    this._stickyScrollRafId = null;
     this._onStickyScroll = () => {
       if (this._stickyScrollLock) return;
-      const el = this.containerRef.current;
-      if (!el) return;
-      const gap = el.scrollHeight - el.scrollTop - el.clientHeight;
-      if (this.state.stickyBottom && gap > 30) {
-        this.setState({ stickyBottom: false });
-      } else if (!this.state.stickyBottom && gap <= 5) {
-        this.setState({ stickyBottom: true });
-      }
+      if (this._stickyScrollRafId) return;
+      this._stickyScrollRafId = requestAnimationFrame(() => {
+        this._stickyScrollRafId = null;
+        const el = this.containerRef.current;
+        if (!el) return;
+        const gap = el.scrollHeight - el.scrollTop - el.clientHeight;
+        if (this.state.stickyBottom && gap > 30) {
+          this.setState({ stickyBottom: false });
+        } else if (!this.state.stickyBottom && gap <= 5) {
+          this.setState({ stickyBottom: true });
+        }
+      });
     };
     this._rebindStickyEl();
   }
@@ -223,13 +228,17 @@ class ChatView extends React.Component {
       this._stickyBoundEl.removeEventListener('scroll', this._onStickyScroll);
     }
     this._stickyBoundEl = el;
-    if (el) el.addEventListener('scroll', this._onStickyScroll);
+    if (el) el.addEventListener('scroll', this._onStickyScroll, { passive: true });
   }
 
   _unbindStickyScroll() {
     if (this._stickyBoundEl && this._onStickyScroll) {
       this._stickyBoundEl.removeEventListener('scroll', this._onStickyScroll);
       this._stickyBoundEl = null;
+    }
+    if (this._stickyScrollRafId) {
+      cancelAnimationFrame(this._stickyScrollRafId);
+      this._stickyScrollRafId = null;
     }
   }
 
@@ -256,7 +265,7 @@ class ChatView extends React.Component {
       }, 2000);
       this._unbindScrollFade();
     };
-    container.addEventListener('scroll', this._onScrollFade);
+    container.addEventListener('scroll', this._onScrollFade, { passive: true });
   }
 
   _unbindScrollFade() {

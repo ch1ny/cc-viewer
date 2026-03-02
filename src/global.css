@@ -7,10 +7,19 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #3a3a3a #0d0d0d;
 }
-*::-webkit-scrollbar { width: 6px; height: 6px; }
-*::-webkit-scrollbar-track { background: #0d0d0d; }
-*::-webkit-scrollbar-thumb { background: #3a3a3a; border-radius: 3px; }
-*::-webkit-scrollbar-thumb:hover { background: #555; }
+/* 手机端使用原生 overlay scrollbar，性能更好 */
+@media (pointer: coarse) {
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: auto;
+  }
+}
+@media (pointer: fine) {
+  *::-webkit-scrollbar { width: 6px; height: 6px; }
+  *::-webkit-scrollbar-track { background: #0d0d0d; }
+  *::-webkit-scrollbar-thumb { background: #3a3a3a; border-radius: 3px; }
+  *::-webkit-scrollbar-thumb:hover { background: #555; }
+}
 
 .diff-view {
   background: #1a1a2e;

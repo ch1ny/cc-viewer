@@ -79,6 +79,7 @@ Haga clic en el botón «Modo conversación» en la esquina superior derecha par
 - Los mensajes de selección del usuario (AskUserQuestion) se muestran en formato de pregunta y respuesta
 - Sincronización bidireccional de modos: al cambiar al modo conversación se navega automáticamente a la conversación de la solicitud seleccionada; al volver al modo texto original se navega automáticamente a la solicitud seleccionada
 - Panel de configuración: se puede alternar el estado de colapso predeterminado de los resultados de herramientas y los bloques de pensamiento
+- Navegación de chat móvil: en el modo CLI móvil, toque el botón "Ver chat" en la barra superior para deslizar una vista de chat de solo lectura y explorar el historial completo de conversaciones en su teléfono
 
 
 ### Herramientas de estadísticas

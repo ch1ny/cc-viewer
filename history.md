@@ -6,6 +6,13 @@
 - Added passthrough list for subcommands: `doctor`, `install`, `update`, `upgrade`, `auth`, `setup-token`, `agents`, `plugin`, `mcp`
 - Added passthrough list for flags: `--version`, `-v`, `--v`, `--help`, `-h`
 - These commands don't involve API calls and don't need proxy/logging
+- Feat: mobile chat browse — read-only chat view accessible from mobile CLI mode via slide-in overlay
+- Feat: chat overlay slides in from right with CSS transition animation
+- Fix: Ant Design dark theme applied to mobile chat overlay (thinking labels, collapse components)
+- Fix: chat scroll working correctly in mobile overlay with proper flex layout chain
+- UI: mobile chat view scaled to 70% zoom for better readability on small screens
+- UI: hide "view request" button in mobile chat mode (read-only browsing)
+- i18n: added `mobileChatBrowse` / `mobileChatExit` entries for all 17 languages
 
 ## 1.4.5 (2026-03-03)
 

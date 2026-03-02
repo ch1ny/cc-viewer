@@ -79,6 +79,7 @@ Clique no botão "Modo de conversa" no canto superior direito para analisar o hi
 - Mensagens de seleção do usuário (AskUserQuestion) exibidas em formato de pergunta e resposta
 - Sincronização bidirecional de modos: ao alternar para o modo de conversa, localiza automaticamente a conversa correspondente à requisição selecionada; ao voltar para o modo de texto original, localiza automaticamente a requisição selecionada
 - Painel de configurações: permite alternar o estado de recolhimento padrão dos resultados de ferramentas e blocos de raciocínio
+- Navegação de chat móvel: no modo CLI móvel, toque no botão "Navegar chat" na barra superior para deslizar uma visualização de chat somente leitura e navegar pelo histórico completo de conversas no seu telefone
 
 
 ### Ferramentas de estatísticas

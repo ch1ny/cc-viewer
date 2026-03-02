@@ -79,6 +79,7 @@ Main Agent'ın tam sohbet geçmişini bir sohbet arayüzüne dönüştürmek iç
 - Kullanıcı seçim mesajları (AskUserQuestion) soru-cevap formatında gösterilir
 - Çift yönlü mod senkronizasyonu: sohbet moduna geçildiğinde seçili isteğe karşılık gelen sohbete otomatik olarak gidilir; ham metin moduna geri dönüldüğünde seçili isteğe otomatik olarak gidilir
 - Ayarlar paneli: araç sonuçları ve düşünme bloklarının varsayılan daraltma durumu değiştirilebilir
+- Mobil sohbet göz atma: Mobil CLI modunda, üst çubuktaki "Sohbet Gözat" düğmesine dokunarak salt okunur bir sohbet görünümünü kaydırın ve telefonunuzda tam konuşma geçmişine göz atın
 
 
 ### İstatistik Araçları

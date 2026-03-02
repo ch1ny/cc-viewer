@@ -79,6 +79,7 @@ Kliknij przycisk „Tryb konwersacji" w prawym górnym rogu, aby przeanalizować
 - Wiadomości z wyborem użytkownika (AskUserQuestion) wyświetlane w formacie pytanie-odpowiedź
 - Dwukierunkowa synchronizacja trybów: przełączenie na tryb konwersacji automatycznie lokalizuje konwersację odpowiadającą wybranemu żądaniu; powrót do trybu surowego tekstu automatycznie lokalizuje wybrane żądanie
 - Panel ustawień: możliwość przełączania domyślnego stanu zwinięcia wyników narzędzi i bloków myślenia
+- Mobilne przeglądanie czatu: w mobilnym trybie CLI dotknij przycisku „Przeglądaj czat" na górnym pasku, aby wysunąć widok czatu tylko do odczytu i przeglądać pełną historię rozmów na telefonie
 
 
 ### Narzędzia statystyczne

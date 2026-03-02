@@ -79,6 +79,7 @@ Klicken Sie auf die Schaltfläche „Konversationsmodus" oben rechts, um den vol
 - Benutzerauswahl-Nachrichten (AskUserQuestion) werden im Frage-Antwort-Format dargestellt
 - Bidirektionale Modussynchronisation: Beim Wechsel zum Konversationsmodus wird automatisch zur Konversation der ausgewählten Anfrage navigiert; beim Zurückwechseln zum Originaltextmodus wird automatisch zur ausgewählten Anfrage navigiert
 - Einstellungspanel: Standardmäßiger Einklappstatus von Tool-Ergebnissen und Thinking-Blöcken kann umgeschaltet werden
+- Mobile Chat-Durchsuchen: Im mobilen CLI-Modus tippen Sie auf die Schaltfläche „Chat durchsuchen" in der oberen Leiste, um eine schreibgeschützte Chat-Ansicht einzublenden und den gesamten Gesprächsverlauf auf Ihrem Telefon zu durchsuchen
 
 
 ### Statistik-Tools

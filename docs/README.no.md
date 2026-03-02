@@ -79,6 +79,7 @@ Klikk på «Samtalemodus»-knappen øverst til høyre for å analysere Main Agen
 - Brukervalgmeldinger (AskUserQuestion) vises i spørsmål-og-svar-format
 - Toveis modussynkronisering: når du bytter til samtalemodus, navigeres det automatisk til samtalen som tilsvarer den valgte forespørselen; når du bytter tilbake til råtekstmodus, navigeres det automatisk til den valgte forespørselen
 - Innstillingspanel: du kan veksle standard sammenfoldet tilstand for verktøyresultater og tenkingsblokker
+- Mobil chat-gjennomgang: I mobil CLI-modus trykker du på knappen «Bla gjennom chat» i topplinjen for å skyve inn en skrivebeskyttet chatvisning og bla gjennom hele samtalehistorikken på telefonen
 
 
 ### Statistikkverktøy

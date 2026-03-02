@@ -79,6 +79,7 @@ Klik på knappen "Samtaletilstand" øverst til højre for at parse Main Agents k
 - Brugervalgsmeddelelser (AskUserQuestion) vises i spørgsmål-og-svar-format
 - Tovejs tilstandssynkronisering: skifter automatisk til den valgte anmodnings tilsvarende samtale ved skift til samtaletilstand; vender automatisk tilbage til den valgte anmodning ved skift tilbage til rå teksttilstand
 - Indstillingspanel: kan skifte standardsammenfoldet tilstand for værktøjsresultater og thinking-blokke
+- Mobil chat-gennemse: I mobil CLI-tilstand kan du trykke på knappen "Gennemse chat" i topbjælken for at skubbe en skrivebeskyttet chatvisning ind og gennemse den fulde samtalehistorik på din telefon
 
 
 ### Statistikværktøj

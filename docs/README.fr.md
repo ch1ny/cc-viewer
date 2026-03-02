@@ -79,6 +79,7 @@ Cliquez sur le bouton « Mode conversation » en haut à droite pour analyser l'
 - Les messages de sélection utilisateur (AskUserQuestion) sont affichés au format question-réponse
 - Synchronisation bidirectionnelle des modes : le passage au mode conversation navigue automatiquement vers la conversation de la requête sélectionnée ; le retour au mode texte original navigue automatiquement vers la requête sélectionnée
 - Panneau de paramètres : possibilité de basculer l'état de repli par défaut des résultats d'outils et des blocs de réflexion
+- Navigation chat mobile : en mode CLI mobile, appuyez sur le bouton « Parcourir le chat » dans la barre supérieure pour faire glisser une vue de chat en lecture seule et parcourir l'historique complet des conversations sur votre téléphone
 
 
 ### Outils de statistiques
