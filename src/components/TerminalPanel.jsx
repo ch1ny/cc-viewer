@@ -1,6 +1,7 @@
 import React from 'react';
 import { Terminal } from '@xterm/xterm';
 import { FitAddon } from '@xterm/addon-fit';
+import { WebglAddon } from '@xterm/addon-webgl';
 import '@xterm/xterm/css/xterm.css';
 import { t } from '../i18n';
 import styles from './TerminalPanel.module.css';
@@ -37,12 +38,17 @@ class TerminalPanel extends React.Component {
 
   componentWillUnmount() {
     if (this._stopMobileMomentum) this._stopMobileMomentum();
+    if (this._writeTimer) cancelAnimationFrame(this._writeTimer);
     if (this.ws) {
       this.ws.close();
       this.ws = null;
     }
     if (this.resizeObserver) {
       this.resizeObserver.disconnect();
+    }
+    if (this.webglAddon) {
+      this.webglAddon.dispose();
+      this.webglAddon = null;
     }
     if (this.terminal) {
       this.terminal.dispose();
@@ -67,6 +73,22 @@ class TerminalPanel extends React.Component {
     this.fitAddon = new FitAddon();
     this.terminal.loadAddon(this.fitAddon);
     this.terminal.open(this.containerRef.current);
+
+    // 启用 WebGL 渲染器，GPU 加速绘制，失败时自动回退 Canvas
+    try {
+      this.webglAddon = new WebglAddon();
+      this.webglAddon.onContextLoss(() => {
+        this.webglAddon?.dispose();
+        this.webglAddon = null;
+      });
+      this.terminal.loadAddon(this.webglAddon);
+    } catch {
+      this.webglAddon = null;
+    }
+
+    // 写入节流：批量合并高频输出，避免逐条触发渲染
+    this._writeBuffer = '';
+    this._writeTimer = null;
 
     if (isMobile) {
       // 移动端：基于屏幕尺寸一次性计算固定 cols/rows，避免动态 fit 导致渲染抖动
@@ -245,11 +267,13 @@ class TerminalPanel extends React.Component {
       try {
         const msg = JSON.parse(event.data);
         if (msg.type === 'data') {
-          this.terminal.write(msg.data);
+          this._throttledWrite(msg.data);
         } else if (msg.type === 'exit') {
+          this._flushWrite();
           this.terminal.write(`\r\n\x1b[33m${t('ui.terminal.exited', { code: msg.exitCode ?? '?' })}\x1b[0m\r\n`);
         } else if (msg.type === 'state') {
           if (!msg.running && msg.exitCode !== null) {
+            this._flushWrite();
             this.terminal.write(`\x1b[33m${t('ui.terminal.exited', { code: msg.exitCode })}\x1b[0m\r\n`);
           }
         }
@@ -335,6 +359,30 @@ class TerminalPanel extends React.Component {
 
     this.terminal.resize(safeCols, safeRows);
     this.sendResize();
+  }
+
+  /**
+   * 写入节流：将高频数据合并到缓冲区，每 16ms（一帧）批量写入一次，
+   * 避免大量输出时逐条触发 xterm 渲染导致卡顿。
+   */
+  _throttledWrite(data) {
+    this._writeBuffer += data;
+    if (!this._writeTimer) {
+      this._writeTimer = requestAnimationFrame(() => {
+        this._flushWrite();
+      });
+    }
+  }
+
+  _flushWrite() {
+    if (this._writeTimer) {
+      cancelAnimationFrame(this._writeTimer);
+      this._writeTimer = null;
+    }
+    if (this._writeBuffer && this.terminal) {
+      this.terminal.write(this._writeBuffer);
+      this._writeBuffer = '';
+    }
   }
 
   handleVirtualKey = (seq) => {

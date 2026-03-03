@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.12 (2026-03-03)
+
+- Perf: WebGL renderer for terminal — GPU-accelerated character drawing with automatic Canvas fallback
+- Perf: terminal output throttle — batch high-frequency writes via requestAnimationFrame to reduce render overhead
+
 ## 1.4.11 (2026-03-03)
 
 - Refactor: split panel layout — FileExplorer/GitChanges decoupled from chat section, terminal uses fixed pixel width instead of flex ratio

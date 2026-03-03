@@ -1,6 +1,6 @@
 {
   "name": "cc-viewer",
-  "version": "1.4.11",
+  "version": "1.4.12",
   "description": "Claude Code Logger visualization management tool",
   "license": "MIT",
   "main": "server.js",
@@ -59,6 +59,7 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.5.2",
     "@xterm/addon-fit": "^0.11.0",
+    "@xterm/addon-webgl": "^0.19.0",
     "@xterm/xterm": "^6.0.0",
     "antd": "^5.29.2",
     "diff": "^8.0.3",
